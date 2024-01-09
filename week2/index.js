@@ -71,17 +71,39 @@
 
 //!! Week 2.2
 
-//?? revision of previous class
+//?? revision of previous class and new addition
+
+function sum(counter) {
+  let sum = 0;
+  for (let i = 0; i <= counter; i++) {
+    sum += i;
+  }
+  return sum;
+}
 
 const express = require("express");
+const bodyparse = require("body-parser");
 const app = express();
 
 const port = 5000;
 
-app.post("/", (req, res) => {
-  res.send("revision karra mein toh");
+//?? registering a middlewqare
+// app.use(middleware1);
+app.use(bodyparse.json());
+
+app.post("/counter", (req, res) => {
+  let counter = req.body.counter;
+  console.log(counter);
+  let calculateSum = sum(counter);
+  res.send(`hann bhai sum is ${calculateSum}`);
 });
 
 app.listen(port, () => {
   console.log("Haan bhai tuu port bhi zinda hai ");
 });
+
+// function middleware1(req, res, next) {
+//   console.log("from middleware");
+//   console.log(req.headers.counter);
+//   next();
+// }
