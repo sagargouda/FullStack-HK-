@@ -27,44 +27,61 @@
 
 //?? counter
 
-function sum(end) {
-  let sum = 0;
-  for (let i = 0; i <= end; i++) {
-    sum += i;
-  }
-  return sum;
-}
-let answer = sum(100);
-console.log(answer);
+// function sum(end) {
+//   let sum = 0;
+//   for (let i = 0; i <= end; i++) {
+//     sum += i;
+//   }
+//   return sum;
+// }
+// let answer = sum(100);
+// console.log(answer);
 
-const expressss = require("express");
-const myApp = expressss();
-const ports = 4000;
+// const expressss = require("express");
+// const myApp = expressss();
+// const ports = 4000;
 
-myApp.listen(ports, () => {
-  console.log("haan bhai tu bhi exist karta hai bas na " + ports);
+// myApp.listen(ports, () => {
+//   console.log("haan bhai tu bhi exist karta hai bas na " + ports);
+// });
+
+// myApp.get("/sagar", (req, res) => {
+//   //?? req is request and res is response
+//   let dynamic = req.query.end;
+//   let expressAnswer = sum(dynamic);
+
+//   let answer = `the dynamic answer is ${expressAnswer}`;
+//   res.send(answer);
+// });
+// //?? this is how url looks , it also works ith numbers
+// // http://localhost:4000/sagar
+// //http://localhost:4000/sagar?end=40
+
+// //?? posting now
+
+// myApp.post("/post", (req, res) => {
+//   res.send("heya sgaar");
+// });
+
+// //??Putting now
+
+// myApp.put("/put", (req, res) => {
+//   res.send("wanna put");
+// });
+
+//!! Week 2.2
+
+//?? revision of previous class
+
+const express = require("express");
+const app = express();
+
+const port = 5000;
+
+app.post("/", (req, res) => {
+  res.send("revision karra mein toh");
 });
 
-myApp.get("/sagar", (req, res) => {
-  //?? req is request and res is response
-  let dynamic = req.query.end;
-  let expressAnswer = sum(dynamic);
-
-  let answer = `the dynamic answer is ${expressAnswer}`;
-  res.send(answer);
-});
-//?? this is how url looks , it also works ith numbers
-// http://localhost:4000/sagar
-//http://localhost:4000/sagar?end=40
-
-//?? posting now
-
-myApp.post("/post", (req, res) => {
-  res.send("heya sgaar");
-});
-
-//??Putting now
-
-myApp.put("/put", (req, res) => {
-  res.send("wanna put");
+app.listen(port, () => {
+  console.log("Haan bhai tuu port bhi zinda hai ");
 });
