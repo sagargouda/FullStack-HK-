@@ -91,11 +91,21 @@ const port = 5000;
 // app.use(middleware1);
 app.use(bodyparse.json());
 
-app.post("/counter", (req, res) => {
-  let counter = req.body.counter;
+app.get("/", (req, res) => {
+  let counter = req.query.counter;
   console.log(counter);
-  let calculateSum = sum(counter);
-  res.send(`hann bhai sum is ${calculateSum}`);
+
+  if (counter < 10000) {
+    let calculateSum = sum(counter);
+    //?? response body
+    let answerObject = {
+      sum: calculateSum,
+    };
+
+    res.send(answerObject);
+  } else {
+    res.status(411).send("that is a big number");
+  }
 });
 
 app.listen(port, () => {
