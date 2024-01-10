@@ -73,44 +73,44 @@
 
 //?? revision of previous class and new addition
 
-function sum(counter) {
-  let sum = 0;
-  for (let i = 0; i <= counter; i++) {
-    sum += i;
-  }
-  return sum;
-}
+// function sum(counter) {
+//   let sum = 0;
+//   for (let i = 0; i <= counter; i++) {
+//     sum += i;
+//   }
+//   return sum;
+// }
 
-const express = require("express");
-const bodyparse = require("body-parser");
-const app = express();
+// const express = require("express");
+// const bodyparse = require("body-parser");
+// const app = express();
 
-const port = 5000;
+// const port = 5000;
 
 //?? registering a middlewqare
 // app.use(middleware1);
-app.use(bodyparse.json());
+// app.use(bodyparse.json());
 
-app.get("/", (req, res) => {
-  let counter = req.query.counter;
-  console.log(counter);
+// app.get("/", (req, res) => {
+//   let counter = req.query.counter;
+//   console.log(counter);
 
-  if (counter < 10000) {
-    let calculateSum = sum(counter);
-    //?? response body
-    let answerObject = {
-      sum: calculateSum,
-    };
+//   if (counter < 10000) {
+//     let calculateSum = sum(counter);
+//     //?? response body
+//     let answerObject = {
+//       sum: calculateSum,
+//     };
 
-    res.send(answerObject);
-  } else {
-    res.status(411).send("that is a big number");
-  }
-});
+//     res.send(answerObject);
+//   } else {
+//     res.status(411).send("that is a big number");
+//   }
+// });
 
-app.listen(port, () => {
-  console.log("Haan bhai tuu port bhi zinda hai ");
-});
+// app.listen(port, () => {
+//   console.log("Haan bhai tuu port bhi zinda hai ");
+// });
 
 // function middleware1(req, res, next) {
 //   console.log("from middleware");
